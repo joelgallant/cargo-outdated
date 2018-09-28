@@ -132,6 +132,9 @@ fn main() {
 #[allow(unknown_lints)]
 #[allow(needless_pass_by_value)]
 pub fn execute(options: Options, config: &mut Config) -> CargoResult<i32> {
+    // allows cargo-features = ["edition"]
+    cargo::core::enable_nightly_features();
+
     config.configure(
         options.flag_verbose,
         None,
